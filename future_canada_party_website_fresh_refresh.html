@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173b70">
+<meta name="description" content="The Future Canada Party: Building Tomorrow, Together. A student-created vision for a fair, innovative, and responsible Canada.">
+<title>Future Canada Party | Building Tomorrow.</title>
+<style>
+:root{
+  --navy:#10294b;--blue:#2457a7;--blue2:#3976cc;--sky:#eaf2fc;
+  --ink:#1b2637;--muted:#5d6b7e;--paper:#fff;--line:#dce4ee;
+  --soft:#f5f8fc;--accent:#cfe0fb;--radius:22px;--shadow:0 14px 38px rgba(16,41,75,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit}
+.skip{position:absolute;left:-999px;top:8px;background:white;padding:10px;z-index:1000}
+.skip:focus{left:8px}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,228,238,.85)}
+.nav-wrap{max-width:1160px;margin:auto;padding:0 24px;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand-mark{width:42px;height:42px;border-radius:13px;background:var(--blue);display:grid;place-items:center;color:white;flex:none;box-shadow:0 6px 16px #2457a733}
+.brand-mark svg{width:25px;height:25px}
+.brand-name{font-weight:800;color:var(--navy);letter-spacing:-.025em;line-height:1.15}
+.brand-sub{font-size:.72rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{text-decoration:none;color:#4c5b70;font-size:.9rem;font-weight:650;transition:color .2s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--blue)}
+.nav-links .nav-cta{background:var(--blue);color:white;padding:10px 15px;border-radius:999px}
+.menu-toggle{display:none;border:1px solid var(--line);background:white;border-radius:12px;padding:9px 12px;color:var(--navy);font-weight:700}
+.container{width:min(1100px,calc(100% - 48px));margin:auto}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#f4f8fe 0%,#fff 55%,#e9f2ff 100%);padding:88px 0 76px}
+.hero:before{content:"";position:absolute;width:470px;height:470px;border:1px solid #cbdcf3;border-radius:50%;right:-125px;top:-145px;box-shadow:0 0 0 48px #e9f2fc80,0 0 0 96px #e9f2fc45}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.eyebrow:before{content:"";width:25px;height:2px;background:var(--blue)}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(2.8rem,6vw,5.4rem);letter-spacing:-.065em;line-height:.99;color:var(--navy);margin:20px 0 22px;max-width:720px}
+h1 span{color:var(--blue)}
+.hero-copy{font-size:1.15rem;max-width:620px;color:#4b5a6f;line-height:1.75}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;border-radius:999px;padding:13px 20px;font-weight:750;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--blue);color:white;box-shadow:0 8px 20px #2457a72b}
+.btn-primary:hover{background:#19498f}
+.btn-secondary{border-color:#cdd9e9;color:var(--navy);background:#ffffffb8}
+.hero-card{background:white;border:1px solid #d9e4f2;border-radius:28px;padding:27px;box-shadow:var(--shadow);position:relative}
+.hero-card-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:23px}
+.pill{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;background:var(--sky);color:var(--blue);padding:7px 10px}
+.leaf-art{height:110px;width:110px;border-radius:28px;background:var(--blue);display:grid;place-items:center;color:white;box-shadow:0 6px 16px #2457a733}
+.leaf-art svg{width:66px;height:66px}
+.hero-card h2{font-size:1.55rem;line-height:1.2;letter-spacing:-.035em;color:var(--navy);margin-bottom:10px}
+.hero-card p{color:var(--muted);font-size:.95rem;margin-bottom:22px}
+.value-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.value{padding:11px 12px;border:1px solid var(--line);border-radius:12px;font-size:.87rem;font-weight:700;color:#35465d}
+.value span{color:var(--blue);margin-right:6px}
+.stats-strip{border-top:1px solid #dce7f4;border-bottom:1px solid #dce7f4;background:#fff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);padding:23px 0;gap:20px}
+.stat{padding-left:20px;border-left:2px solid var(--accent)}
+.stat strong{display:block;color:var(--navy);font-size:1rem}
+.stat span{display:block;color:var(--muted);font-size:.86rem}
+section{padding:88px 0}
+.section-head{max-width:700px;margin-bottom:36px}
+.kicker{color:var(--blue);font-weight:800;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px}
+h2.section-title{font-size:clamp(2rem,4vw,3.15rem);line-height:1.08;letter-spacing:-.05em;color:var(--navy);margin-bottom:16px}
+.section-intro{font-size:1.05rem;color:var(--muted);max-width:680px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.statement{background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.statement blockquote{margin:0;color:#33445a;font-size:1.08rem;line-height:1.85}
+.statement .quote-mark{font-size:3rem;line-height:1;color:var(--blue);font-weight:900}
+.leader-line{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-weight:800;color:var(--navy)}
+.leader-line small{display:block;font-weight:500;color:var(--muted);font-size:.84rem}
+.value-cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.value-card{border:1px solid var(--line);border-radius:17px;padding:19px;background:white}
+.value-icon{width:39px;height:39px;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:900;font-size:1.1rem;margin-bottom:13px}
+.value-card h3{font-size:1rem;color:var(--navy);margin-bottom:6px}
+.value-card p{font-size:.89rem;color:var(--muted);margin:0}
+.platform-section{background:var(--soft)}
+.platform-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.policy-card{background:white;border:1px solid var(--line);border-radius:21px;padding:25px;display:flex;flex-direction:column;min-height:270px;transition:transform .2s,box-shadow .2s}
+.policy-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.policy-card:last-child{grid-column:1/-1;min-height:230px}
+.policy-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:17px}
+.policy-icon{width:48px;height:48px;border-radius:15px;background:var(--sky);display:grid;place-items:center;color:var(--blue);font-size:1.3rem;font-weight:800}
+.policy-number{font-size:.8rem;color:#8492a5;font-weight:800;letter-spacing:.1em}
+.policy-card h3{font-size:1.35rem;line-height:1.2;letter-spacing:-.025em;color:var(--navy);margin-bottom:11px}
+.policy-card p{color:var(--muted);font-size:.95rem}
+.policy-card ul{padding-left:20px;margin:0 0 15px;color:#34465d;font-size:.91rem}
+.policy-card li{margin:7px 0}
+.policy-intro{font-size:.91rem;font-weight:700;color:#233d5c;margin:0 0 8px}
+.student-footnote{text-align:center;font-size:.75rem;color:#6b7788;padding:10px 16px 16px;margin:0}
+.policy-outcome{margin-top:auto;border-top:2px solid var(--accent);padding:13px 12px 0 0;color:var(--blue);font-size:.9rem;font-weight:650;line-height:1.5}
+.federal-note strong{color:var(--navy)}
+.funding-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:start}
+.funding-panel{background:var(--navy);color:white;border-radius:24px;padding:30px}
+.funding-panel .kicker{color:#b8d3ff}
+.funding-panel h3{font-size:1.65rem;line-height:1.2;letter-spacing:-.035em;margin-bottom:14px}
+.funding-panel p{color:#d9e4f4;font-size:.95rem}
+.funding-principles{display:grid;gap:13px}
+.funding-row{display:grid;grid-template-columns:43px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.funding-row:last-child{border-bottom:0}
+.funding-row .num{width:38px;height:38px;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:850}
+.funding-row h3{font-size:1.04rem;color:var(--navy);margin-bottom:4px}
+.funding-row p{font-size:.91rem;color:var(--muted);margin:0}
+.perspective{background:#f3f7fc}
+.perspective-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.perspective-card{background:white;border:1px solid var(--line);border-radius:19px;padding:25px}
+.perspective-card h3{color:var(--navy);font-size:1.12rem}
+.perspective-card p{color:var(--muted);margin:0;font-size:.95rem}
+.closing{background:linear-gradient(120deg,#173b70,#2457a7);color:white;text-align:center;padding:76px 0}
+.closing .kicker{color:#c5dcff}
+.closing h2{font-size:clamp(2.2rem,5vw,3.7rem);letter-spacing:-.055em;line-height:1.05;margin-bottom:16px}
+.closing p{color:#e0eaff;max-width:650px;margin:0 auto 26px;font-size:1.05rem}
+.closing .btn{background:white;color:var(--navy)}
+
+.sources-section{background:#fff}
+.sources-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.source-link{display:block;padding:16px 18px;border:1px solid var(--line);background:var(--soft);text-decoration:none;color:var(--navy);font-weight:700;line-height:1.4}
+.source-link span{display:block;color:var(--muted);font-size:.84rem;font-weight:500;margin-top:5px}
+.sources-note{font-size:.9rem;color:var(--muted);margin-top:18px;max-width:760px}
+footer{background:#0c203c;color:#d8e2f0;padding:29px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.footer-brand{font-weight:800;color:white}
+.footer-note{font-size:.8rem;color:#b8c7da;max-width:590px}
+.back-top{color:white;text-decoration:none;font-size:.85rem;font-weight:700;white-space:nowrap}
+:focus-visible{outline:3px solid #80b4ff;outline-offset:3px}
+@media(max-width:850px){
+ .nav-links{gap:13px}.nav-links a{font-size:.82rem}
+ .hero-grid{gap:30px;grid-template-columns:1.05fr .85fr}
+ .hero{padding:70px 0 62px}
+ .about-grid,.funding-grid{gap:26px}
+}
+@media(max-width:700px){
+ .nav-wrap{min-height:68px;padding:0 18px}
+ .menu-toggle{display:inline-flex}
+ .nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:14px 20px 20px;background:white;border-bottom:1px solid var(--line);box-shadow:0 12px 20px #10294b12;flex-direction:column;align-items:stretch;gap:4px}
+ .nav-links.open{display:flex}
+ .nav-links a{padding:11px 12px;border-radius:10px;font-size:.95rem}
+ .nav-links .nav-cta{text-align:center;margin-top:4px}
+ .container{width:min(100% - 36px,600px)}
+ .hero{padding:56px 0 48px}
+ .hero-grid{grid-template-columns:1fr;gap:32px}
+ h1{font-size:clamp(2.9rem,13vw,4.4rem)}
+ .hero-copy{font-size:1.03rem}
+ .hero-card{max-width:460px}
+ .stats{grid-template-columns:1fr;gap:14px;padding:18px 0}
+ .stat{padding:0 0 0 14px}
+ section{padding:65px 0}
+ .about-grid,.funding-grid,.perspective-grid{grid-template-columns:1fr}
+ .value-cards{gap:10px}
+ .platform-grid{grid-template-columns:1fr}
+ .sources-list{grid-template-columns:1fr}
+ .policy-card,.policy-card:last-child{grid-column:auto;min-height:0}
+ .policy-card{padding:22px}
+ .footer-inner{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Plain, square-edged styling requested for the school project. */
+*, *::before, *::after { border-radius: 0 !important; }
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="nav-wrap">
+    <a class="brand" href="#home" aria-label="Future Canada Party home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none"><path d="M32 6l5 12 10-6-3 12 13 1-10 8 8 8-13 1 2 12-12-7-12 7 2-12-13-1 8-8-10-8 13-1-3-12 10 6z" fill="currentColor"/><path d="M32 31v24" stroke="#2457a7" stroke-width="3" stroke-linecap="round"/></svg>
+      </span>
+      <span><span class="brand-name">Future Canada Party</span><br><span class="brand-sub">Building Tomorrow.</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#vision">Our Vision</a>
+      <a href="#platform">Our Platform</a>
+      <a href="#funding">The Plan</a>
+      <a href="#perspective">Our Perspectives</a>
+      <a class="nav-cta" href="#platform">Explore the Platform</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">A vision for Canada's future</div>
+      <h1>Future Canada Party</h1>
+      <p class="hero-copy">A Canada where people have a fair chance to succeed, taxpayer money helps everyone, and progress is made with wise decisions.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#platform">Explore our platform <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Party priorities">
+      <div class="hero-card-top">
+        <span class="pill">Our guiding principles</span>
+        <div class="leaf-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M32 5l5 12 10-6-3 12 13 1-10 8 8 8-13 1 2 12-12-7-12 7 2-12-13-1 8-8-10-8 13-1-3-12 10 6z" fill="currentColor"/><path d="M32 30v25" stroke="#2457a7" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <h2>A stronger future starts with fair opportunity.</h2>
+      <p>Future Canada Party - Led by Yuvraj Bal</p>
+      <div class="value-list">
+        <div class="value"> Fairness</div>
+        <div class="value"> Freedom</div>
+        <div class="value"> Equality</div>
+        <div class="value"> Education</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="vision">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Our Leader, and Our Vision.</h2>
+      <p class="section-intro">The Future Canada Party is a proposed centrist party built with the future of a productive economy and the successful use of taxpayer money in mind.</p>
+    </div>
+    <div class="about-grid">
+      <div class="statement">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <blockquote>I believe Canada should be fair and give people freedom, equal opportunities, and a good education. Education matters to me because my older sister encouraged me to challenge myself and join the IB program. Seeing her get into Waterloo showed me how important education and support can be. I want the government to help people access these opportunities while spending public money carefully. I believe Canada can make progress by listening to different views and choosing practical solutions that help people now and in the future.</blockquote>
+        <div class="leader-line">Yuvraj Bal <small>Leader, Future Canada Party</small></div>
+      </div>
+      <div>
+        <div class="value-cards">
+          <article class="value-card"><div class="value-icon" aria-hidden="true">F</div><h3>Fairness</h3><p>Give people a chance to learn, work, and contribute, regardless of their social class.</p></article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">↗</div><h3>Freedom</h3><p>Respect individual choice and support people in making decisions about their own futures.</p></article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">=</div><h3>Equality</h3><p>Work to remove barriers that limit people from succeeding and make more opportunities accessible.</p></article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">E</div><h3>Education</h3><p>Fund education, as education is a foundation for a smarter country and a thriving economy.</p></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="platform-section" id="platform">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Our Five Priorities</h2>
+      <p class="section-intro">Our party focuses on essential services, affordability, good use of taxpayer money, and job opportunities.</p>
+    </div>
+    <div class="platform-grid">
+      <article class="policy-card">
+        <div class="policy-top"><div class="policy-icon" aria-hidden="true">01</div><span class="policy-number">EDUCATION</span></div>
+        <h3>Stronger public schools</h3>
+        <p>Students deserve learning environments that help them build knowledge, confidence, and useful skills.</p>
+        <p class="policy-intro">To achieve this, we will:</p>
+        <ul>
+          <li>Work with provinces and territories to fund classroom supplies and extra learning support.</li>
+          <li>Give students better access to digital tools and hands-on technology lessons.</li>
+          <li>Help students explore careers, skilled trades, and options after high school.</li>
+        </ul>
+        <div class="policy-outcome">Overall goal: Give more students the tools to succeed.</div>
+      </article>
+      <article class="policy-card">
+        <div class="policy-top"><div class="policy-icon" aria-hidden="true">02</div><span class="policy-number">HEALTHCARE</span></div>
+        <h3>Care people can access</h3>
+        <p>Healthcare should be easier to navigate, with attention to both physical health and mental well-being.</p>
+        <p class="policy-intro">To achieve this, we will:</p>
+        <ul>
+          <li>Help provinces and territories hire and keep healthcare workers.</li>
+          <li>Support proven ways to improve mental health, especially for young people.</li>
+          <li>Use federal health funding to support shared goals and check that money is used well.</li>
+        </ul>
+        <div class="policy-outcome">Overall goal: Help people access care and support healthier communities.</div>
+      </article>
+      <article class="policy-card">
+        <div class="policy-top"><div class="policy-icon" aria-hidden="true">03</div><span class="policy-number">HOUSING</span></div>
+        <h3>More homes, more opportunity</h3>
+        <p>Increasing housing supply requires cooperation, predictable investment, and fewer unnecessary barriers to building.</p>
+        <p class="policy-intro">To achieve this, we will:</p>
+        <ul>
+          <li>Use federal funding to help build more homes and needed infrastructure.</li>
+          <li>Work with local and provincial governments to reduce delays in approving new homes.</li>
+          <li>Check that projects build homes and provide services communities need.</li>
+        </ul>
+        <div class="policy-outcome">Overall goal: Help communities build more homes and give people more options.</div>
+      </article>
+      <article class="policy-card">
+        <div class="policy-top"><div class="policy-icon" aria-hidden="true">04</div><span class="policy-number">CLIMATE & ENERGY</span></div>
+        <h3>Innovation for a cleaner future</h3>
+        <p>Canada can reduce emissions while working to maintain reliable, affordable energy for households and businesses.</p>
+        <p class="policy-intro">To achieve this, we will:</p>
+        <ul>
+          <li>Support research into renewable energy, nuclear power, and ways to store energy.</li>
+          <li>Support Canadian researchers and businesses developing ways to cut pollution.</li>
+          <li>Choose projects based on cost, reliability, evidence, and environmental impact.</li>
+        </ul>
+        <div class="policy-outcome">Overall goal: Support clean technology and reliable energy.</div>
+      </article>
+      <article class="policy-card">
+        <div class="policy-top"><div class="policy-icon" aria-hidden="true">05</div><span class="policy-number">JOBS & ECONOMY</span></div>
+        <h3>Skills, businesses, and good jobs</h3>
+        <p>A strong economy depends on people having useful skills and businesses being able to innovate and grow.</p>
+        <p class="policy-intro">To achieve this, we will:</p>
+        <ul>
+          <li>Support apprenticeships, job training, and work opportunities for young people.</li>
+          <li>Make it easier for small businesses to find information and government support.</li>
+          <li>Support Canadian ideas and research, and check whether programs are working.</li>
+        </ul>
+        <div class="policy-outcome">Overall goal: Help people prepare for work and help businesses grow.</div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<section id="funding">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">The plan</div>
+      <h2 class="section-title">Our first steps</h2>
+      <p class="section-intro">Our party will be transparent about how it plans to pay for its decisions. We would assess the cost of proposals before committing public funds and report on results openly.</p>
+    </div>
+    <div class="funding-grid">
+      <div class="funding-panel">
+        <div class="kicker">Our financial approach</div>
+        <h3>Spend carefully. Invest where it matters.</h3>
+        <p>Our party would aim to keep federal finances sustainable, protect important services, and make careful investments in Canada's future.</p>
+        <a class="btn btn-secondary" href="#perspective" style="background:transparent;border-color:#6f8eb9;color:white">Our political perspective ↓</a>
+      </div>
+      <div class="funding-principles">
+        <div class="funding-row"><div class="num">1</div><div><h3>Review spending</h3><p>Review existing programs to find repeated work, ineffective spending, and ways to deliver services more efficiently.</p></div></div>
+        <div class="funding-row"><div class="num">2</div><div><h3>Set clear priorities</h3><p>Give priority to clearly defined goals supported by credible evidence, with a clear explanation of how Canada benefits.</p></div></div>
+        <div class="funding-row"><div class="num">3</div><div><h3>Cost policies before launch</h3><p>Be open with the public about the costs of our spending, and explain why it is beneficial before making major changes.</p></div></div>
+        <div class="funding-row"><div class="num">4</div><div><h3>Measure and report results</h3><p>Publish public reports to show what is working, what is not, and how we are working to make our plans succeed.</p></div></div>
+        <div class="funding-row"><div class="num">5</div><div><h3>Work with other governments</h3><p>Coordinate with provincial, territorial, and municipal partners so programs are funded and delivered properly to all citizens.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="perspective" id="perspective">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Our values</div>
+      <h2 class="section-title">Our political perspective</h2>
+      <p class="section-intro">The Future Canada Party sits in the political centre. It combines support for public services and economic opportunity with a focus on careful spending, business growth, and other similar activities.</p>
+    </div>
+    <div class="perspective-grid">
+      <article class="perspective-card"><h3>Our Economic Perspective</h3><p>We support responsible public spending. The public spending our party supports should have clear goals and costs that can be justified for the majority of citizens.</p></article>
+      <article class="perspective-card"><h3>Our social perspective</h3><p>We value individual freedom, fairness, and equality. We consider the viewpoints of many citizens and the effects that changes may have.</p></article>
+    </div>
+
+  </div>
+</section>
+
+<section class="sources-section" id="sources">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">References</div>
+      <h2 class="section-title">Sources</h2>
+      <p class="section-intro">These are the sources I used for the assignment.</p>
+    </div>
+    <div class="sources-list">
+      <a class="source-link" href="https://www.educanada.ca/study-plan-etudes/system-education-systeme.aspx?lang=eng" target="_blank" rel="noopener noreferrer">Government of Canada: Canadian education system</a>
+      <a class="source-link" href="https://www.canada.ca/en/health-canada/services/canada-health-care-system.html" target="_blank" rel="noopener noreferrer">Health Canada: Canada's health care system</a>
+      <a class="source-link" href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-data/data-tables/housing-market-data" target="_blank" rel="noopener noreferrer">Canada Mortgage and Housing Corporation: Housing market data</a>
+      <a class="source-link" href="https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/clean-electricity.html" target="_blank" rel="noopener noreferrer">Government of Canada: Canada's clean electricity future</a>
+      <a class="source-link" href="https://www.canada.ca/en/employment-social-development/programs/canadian-apprenticeship-strategy.html" target="_blank" rel="noopener noreferrer">Government of Canada: Canadian Apprenticeship Strategy</a>
+      <a class="source-link" href="https://www.canada.ca/en/employment-social-development/programs/youth-employment-strategy.html" target="_blank" rel="noopener noreferrer">Government of Canada: Youth Employment and Skills Strategy</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <h2>Building Tomorrow.</h2>
+    <a class="btn" href="#home">Back to the beginning ↑</a>
+  </div>
+</section>
+<p class="student-footnote">Yuvraj Bal, Period 2, Mr. Dares</p>
+</main>
+
+
+<script>
+const toggle = document.getElementById('menuToggle');
+const nav = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(isOpen));
+  toggle.textContent = isOpen ? 'Close ×' : 'Menu ☰';
+});
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  toggle.textContent = 'Menu ☰';
+}));
+</script>
+</body>
+</html>
